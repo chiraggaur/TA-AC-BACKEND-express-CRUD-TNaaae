@@ -1,4 +1,5 @@
 let express = require("express");
+const User = require("../models/User");
 let routes = express.Router();
 
 // routes
@@ -8,7 +9,6 @@ routes.get("/new", (req, res) => {
 });
 
 routes.post("/", (req, res) => {
-  res.render("userslist", { user: req.body });
   User.create(req.body);
 });
 
