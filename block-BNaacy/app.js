@@ -1,12 +1,11 @@
 let express = require("express");
 let mongoose = require("mongoose");
 let path = require("path");
-let userroutes = require("./routes/User");
-let User = require("./models/User");
+let userRouter = require("./routes/users");
 
 // connect mongoose to database
 
-mongoose.connect("mongodb://127.0.0.1:27017/User");
+mongoose.connect("mongodb://127.0.0.1:27017/user-diary");
 
 // initiating express app
 
@@ -16,11 +15,11 @@ let app = express();
 
 app.use(express.json()); // store json data
 
-app.use(express.urlencoded()); // store forms data
+app.use(express.urlencoded({ extended: false })); // store forms data
 
 // routing middlewares
 
-app.use("/users", userroutes); // path name route
+app.use("/users", userRouter); // path name route
 
 // setup view engine
 
