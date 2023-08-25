@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>User Details</h1>
+
+    <ul>
+      <% user.forEach((usr)=>{ %>
+      <div class="userDetails">
+        <li><%= usr.name %></li>
+        <li><%= usr.email %></li>
+        <li><%= usr.age %></li>
+        <li><%= usr.bio %></li>
+        <% })%>
+      </div>
+    </ul>
+  </body>
+</html>
