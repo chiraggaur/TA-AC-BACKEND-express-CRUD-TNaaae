@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>User Details</h1>
+
+    <ul>
+      <% user.forEach((usr)=>{ %>
+      <a href="/users/<%= usr.id %>">
+        <li style="font-size: 30px; text-decoration: none"><%= usr.name %></li>
+      </a>
+      <a href="/users/<%= usr.id %>/edit">
+        <button>Edit User</button>
+      </a>
+      <a href="/users/<%= usr.id %>/delete">
+        <button>Delete User</button>
+      </a>
+      <a href="/users/<%= usr.id %>">
+        <button>Show Users List</button>
+      </a>
+
+      <% })%>
+    </ul>
+  </body>
+</html>
