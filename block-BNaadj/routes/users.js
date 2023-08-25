@@ -26,11 +26,10 @@ route.get("/:id", async (req, res) => {
 
 //update
 
-route.put("/:id", async (req, res) => {
+route.post("/:id", async (req, res) => {
   let id = req.params.id;
   let data = await User.findByIdAndUpdate(id, req.body);
-  //   res.redirect("/users/");
-  console.log(data);
+  res.redirect("/users/");
 });
 
 // redirect to users edit form
@@ -40,17 +39,10 @@ route.get("/:id/edit", async (req, res) => {
   res.render("userForm", { user: data });
 });
 
-// edit user
-// route.put("/:id", async (req, res) => {
-//   let id = req.params.id;
-//   let data = await User.findByIdAndUpdate(id, req.body);
-//   //   res.render("updatedDetails", { user: data });
-// });
-
 // delete user
-route.delete("/:id", async (req, res) => {
+route.get("/:id/delete", async (req, res) => {
   let id = req.params.id;
-  await User.findByIdAndDelete(id);
+  let data = await User.findByIdAndDelete(id, req.body);
   res.redirect("/users/");
 });
 // export route
